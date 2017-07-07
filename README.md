@@ -73,18 +73,6 @@ curl
 ```JSON
 {
    "id":"30c8e93b-3f7c-4780-9634-5b650d474bdd",
-   "referral_request":{
-      "sender_system":"TEST_SYSTEM",
-      "message":"referral message",
-      "patient_request":{
-         "first_name":"Susan",
-         "surname":"Little",
-         "title":"Ms",
-         "sex":"female",
-         "street_address":"1 Foo St",
-         "suburb":"Melbourne"
-      }
-   },
    "_links":{
       "self":{
          "href":"https://master.oculo.com.au/api/v1/referral_requests/30c8e93b-3f7c-4780-9634-5b650d474bdd"
