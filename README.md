@@ -23,6 +23,7 @@ Oculo returns two URLs to reference this referral - one to query the status of t
 
 If possible, the CIS has the ability to open a browser with this second URL and the user can complete the referral process in Oculo. Alternatively the provider can log in to Oculo, find the draft and complete it.
 
+![alt text](images/api_flow.png "API Flow")
 
 ## Using the API
 
