@@ -8,7 +8,7 @@ Integrating with the Oculo API for the purpose of sending clinical communication
 
 ## Prerequisites
 
-Providers will be set up in Oculo with active roles for their practice(s). 
+Providers will be set up in Oculo with active roles for their practice(s).
 
 Integrations will be set up in Oculo for each of the practices the provider wishes to use.
 
@@ -60,7 +60,7 @@ The auth_token returned will be used in all future API requests.
 
 ###### Example request
 ```Shell
-curl 
+curl
 	-H "Accept: application/json" \
 	-H "Content-type: application/json" \
 	-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiR3lUMUh3a1BrTW5aRnduUGVONUIiLCJleHBpcmVzIjoiMjAxNi0xMS0xMSAwMjoxNTowMCBVVEMifQ.A8ANIiAdrM1RroYXzvk15YFPXWU-zU0LEgOCHoPFkpI" \
@@ -103,7 +103,7 @@ It is possible to check the status of the communication in Oculo by sending a GE
 
 ###### Example request
 ```Shell
-curl 
+curl
 	-H "Accept: application/json" \
 	-H "Content-type: application/json" \
 	-H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiWFZZQWItdmpqR01NN1p5R3hfWDQiLCJleHBpcmVzIjoiMjAxNi0xMS0xNSAwNTo0NzoyNiBVVEMifQ.fzU5PedoCaKEWiwcQDwR0CTym-Y7oPpmkWsLmiJMLDo" \
@@ -143,3 +143,6 @@ Using the ```edit_referral_request -> href``` link, log into oculo and continue 
 
 You have the option of selecting a matching patient if they match an existing patient, or creating a new patient. Once complete, continue modifying the Oculo Referral as normal.
 
+#### Examples
+
+We have included a sample flow in the [postman directory](postman).
