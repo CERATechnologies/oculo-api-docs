@@ -35,7 +35,7 @@ The detailed API documentation can be found at: [http://swagger.oculo.com.au](ht
 Using your ```Access Key``` and ```Secret Key``` you can now get a temporary API token to begin interacting with the Oculo platform. The ```client_id``` for the integration will be provided prior to testing.
 
 ###### Example request
-``` sh
+```Shell
 curl \
 	-d access_key='GyT1HwkPkMnZFwnPeN5B' \
 	-d secret_key='zbQWxFDjsqErPsP8ybawVtk_jFW_tFSz' \
@@ -44,11 +44,11 @@ curl \
 ```
 
 ###### Example response
-``` JSON
+```JSON
 {
- "auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiR3lUMUh3a1BrTW5aRnduUGVONUIiLCJleHBpcmVzIjoiMjAxNi0xMS0xMSAwMjoxNTowMCBVVEMifQ.A8ANIiAdrM1RroYXzvk15YFPXWU-zU0LEgOCHoPFkpI",
-   "expires_in":"2016-11-11T02:15:00.513Z",
-   "client_id":"TEST_SYSTEM"
+	"auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2Nlc3Nfa2V5IjoiR3lUMUh3a1BrTW5aRnduUGVONUIiLCJleHBpcmVzIjoiMjAxNi0xMS0xMSAwMjoxNTowMCBVVEMifQ.A8ANIiAdrM1RroYXzvk15YFPXWU-zU0LEgOCHoPFkpI",
+   	"expires_in":"2016-11-11T02:15:00.513Z",
+  	"client_id":"TEST_SYSTEM"
 }
 ```
 
@@ -59,7 +59,7 @@ The auth_token returned will be used in all future API requests.
 #### Sending a Referral Request
 
 ###### Example request
-``` sh
+```Shell
 curl 
 	-H "Accept: application/json" \
 	-H "Content-type: application/json" \
@@ -69,7 +69,7 @@ curl
 ```
 
 ###### Example response
-``` JSON
+```JSON
 {
    "id":"30c8e93b-3f7c-4780-9634-5b650d474bdd",
    "referral_request":{
@@ -102,7 +102,7 @@ curl
 It is possible to check the status of the communication in Oculo by sending a GET request to the URL provided in the ```_links -> self -> href``` section of the response above.
 
 ###### Example request
-``` sh
+```Shell
 curl 
 	-H "Accept: application/json" \
 	-H "Content-type: application/json" \
@@ -111,7 +111,7 @@ curl
 ```
 
 ###### Example response
-``` JSON
+```JSON
 {
    "id":"30c8e93b-3f7c-4780-9634-5b650d474bdd",
    "referral_request":{
