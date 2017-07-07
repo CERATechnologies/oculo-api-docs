@@ -1,0 +1,105 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Oculo API",
+		"_postman_id": "aec35430-f193-26b0-3c88-80ad8e1d91ca",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorise",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"auth_token\", jsonData.auth_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/api/v1/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client_id\": \"{{client_id}}\",\n\t\"access_key\": \"{{access_key}}\",\n\t\"secret_key\": \"{{secret_key}}\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create Referral Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"last_request_href\", jsonData._links.self.href);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{host}}/api/v1/referral_requests",
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "Bearer {{auth_token}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"referral_request\": {\n    \"sender_system\": \"OCULO\",\n    \"sender_system_references\": {\n      \"external_id\": 127743\n    },\n    \"practice_role\": {\n    \t\"industry_reference\": \"NMW000000001\",\n    \t\"organisation_reference\": \"STOREID123\"\n    },\n    \"message\": \"This is a new referral\",\n    \"patient_request\": {\n      \"first_name\": \"Paul\",\n      \"surname\": \"Robertson\",\n      \"title\": \"Mr\",\n      \"date_of_birth\": \"1/1/1990\",\n      \"sex\": \"male\",\n      \"street_address\": \"1 Smiths Lane\",\n      \"suburb\": \"Richmond\",\n      \"state\": \"VIC\",\n      \"postcode\": \"3121\",\n      \"country_code\": \"AU\",\n      \"contact_number\": \"555 55 5\",\n      \"email_address\": \"paul@example.com\",\n      \"hypertension\": true,\n      \"asthma\": true,\n      \"diabetes\": true,\n      \"diabetes_year_diagnosed\": \"1999\",\n      \"diabetes_type\": \"II\",\n      \"diabetes_hba1c\": \"65\",\n      \"diabetes_control\": \"Good\",\n      \"other_pmh\": \"N/A\",\n      \"allergies\": [\"bees\"],\n      \"current_medication\": [\"blood pressure\"],\n      \"eye_drop_intolerance\": \"Slight allergies to most\",\n      \"family_social_history\": \"Heart disease and stroke\",\n      \"medicare_irn\": \"2\",\n      \"medicare_card_number\": \"454234423443\",\n      \"providers\": [\n        {\n    \t  \"role\": \"GP\",\n    \t  \"title\": \"Dr\",\n    \t  \"first_name\": \"Gustavo\",\n    \t  \"surname\": \"Esposito\",\n    \t  \"practice\": {\n    \t  \t\"name\": \"Church St Medical\",\n    \t  \t\"address_line_1\": \"Level 3\",\n    \t  \t\"address_line_2\": \"66 Church St\",\n    \t  \t\"suburb\": \"Prahran\",\n    \t  \t\"state\": \"VIC\",\n    \t  \t\"postcode\": \"3181\",\n    \t  \t\"phone\": \"666 6 6\",\n    \t  \t\"fax\": \"777 7 7\", \n    \t  \t\"email\": \"gustavo@example.com\",\n    \t  \t\"website\": \"http://example.com\"\n    \t  }\n        }\n      ]\n    },\n    \"clinical_data\": {\n      \"max_iop_right\": \"11\",\n      \"max_iop_left\": \"12\",\n      \"surgical_history\": \"Laser eye surgery 2000\",\n      \"other_risk_factors\": \"skydiver\",\n      \"va_blind_control_right\": true,\n      \"va_blind_control_left\": false,\n      \"va_blindness_right\": \"PL\",\n      \"va_blindness_left\": \"CF\",\n      \"normal_va_right\": \"4\",\n      \"normal_va_left\": \"12\",\n      \"patient_va_right\": \"6\",\n      \"patient_va_left\": \"5\",\n      \"patient_va_right_modifier\": \"-\",\n      \"patient_va_left_modifier\": \"+\",\n      \"current_iop_right\": \"10\",\n      \"current_iop_left\": \"12\",\n      \"desired_refraction_right\": \"+1.0\",\n      \"desired_refraction_left\": \"+1.0\",\n      \"cataract_description_right\": \"cloudy\",\n      \"cataract_description_left\": \"very cloudy\",\n      \"gonio_findings_right\": \"gonio right\",\n      \"gonio_findings_left\": \"gonio left\",\n      \"refraction_right\": \"+2.75\",\n      \"refraction_left\": \"+2.25\",\n      \"central_corneal_thickness_left\": 8,\n      \"central_corneal_thickness_right\": 7,\n      \"family_history_of_glaucoma\": true,\n      \"recent_vision_change_right\": true,\n      \"recent_vision_change_left\": false,\n      \"change_on_amsler_right\": false,\n      \"change_on_amsler_left\": true,\n      \"retinal_findings_right\": \"right findings\",\n      \"retinal_findings_left\": \"left findings\",\n      \"amd_right\": \"Late with Atrophy\",\n      \"amd_left\": \"Intermediate\",\n      \"macular_oedema_right\": true,\n      \"macular_oedema_left\": false,\n      \"diabetic_retinopathy_right\": \"PDR\",\n      \"diabetic_retinopathy_left\": \"Mild-Moderate NPDR\"\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Show Last Referral Request",
+			"request": {
+				"url": "{{last_request_href}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{auth_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
